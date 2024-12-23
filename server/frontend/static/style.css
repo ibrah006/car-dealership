@@ -129,10 +129,15 @@ img{
     display: flex;
     justify-content: space-around; /* Distribute items horizontally */
     align-items: center; /* Align items vertically */
+    padding-top: 50px;
 }
 
- .horizontal-div-item {
+.horizontal-div-item {
     background-color: lightblue;
     text-align: center;
     line-height: 50px;
+}
+
+.contact-info-item {
+    color: #6495ec;
 }
