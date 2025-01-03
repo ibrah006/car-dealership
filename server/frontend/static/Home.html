@@ -8,7 +8,11 @@
 
 const logout = async (e) => {
 //Include the code for logout here.
-    let logout_url = window.location.origin+"/djangoapp/logout";
+
+    const root_url = window.location.origin;
+
+
+    let logout_url = root_url+"/djangoapp/logout";
 
     const res = await fetch(logout_url, {
         method: "GET"
@@ -16,13 +20,17 @@ const logout = async (e) => {
 
     const json = await res.json();
 
+    console.log(`json data: ${json}`);
+
     if (json) {
+
         let username = sessionStorage.getItem("username");
         sessionStorage.removeItem("username");
         window.location.href = window.location.origin;
         window.location.reload();
         alert("Logging out " + username + "...");
     } else {
+
         alert("The user could not be logged out.");
     }
 };
