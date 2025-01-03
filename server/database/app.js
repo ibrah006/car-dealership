@@ -90,7 +90,7 @@ app.get('/fetchDealer/:id', async (req, res) => {
             });
         }
     } catch (error) {
-        res.status(500).json({error: `Error fetching document, ${error}`})
+        res.status(500).json({error: `Error fetching document`})
     }
 });
 
