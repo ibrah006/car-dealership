@@ -80,18 +80,17 @@ app.get('/fetchDealers/:state', async (req, res) => {
 app.get('/fetchDealer/:id', async (req, res) => {
 //Write your code here
     try {
-        const delear = Dealerships.find({id: req.params.id});
+        const dealer = await Dealerships.find({id: Number(req.params.id)});
         
         if (dealer) {
-            res.json(delear);
+            res.json(dealer);
         } else {
             res.status(404).json({ 
                 error: "Document not found",
-                message: "No document found with the specefied ID"
             });
         }
     } catch (error) {
-        res.status(500).json({error: "Error fetching document"})
+        res.status(500).json({error: `Error fetching document, ${error}`})
     }
 });
 
