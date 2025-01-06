@@ -52,4 +52,4 @@ def post_review(data_dict):
         return response.json()
     except:
         print("Network Exception")
-        return {"status": 502, "message", "Connection lost"}
+        return {"status": 502, "message": "Connection lost"}
