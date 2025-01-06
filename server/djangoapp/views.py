@@ -109,11 +109,6 @@ def get_dealer_reviews(request, dealer_id):
             
 
 
-
-# Create a `get_dealer_details` view to render the dealer details
-# def get_dealer_details(request, dealer_id):
-# ...
-
 # `add_review` view to submit a review
 def add_review(request):
     if (request.user.is_anonymous == False):
