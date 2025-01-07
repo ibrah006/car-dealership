@@ -3,6 +3,8 @@ import requests
 import os
 from dotenv import load_dotenv
 
+import json
+
 load_dotenv()
 
 backend_url = os.getenv(
@@ -30,14 +32,16 @@ def get_request(endpoint, **kwargs):
 
 def analyze_review_sentiments(text):
     request_url = sentiment_analyzer_url+"analyze/"+text
-    
     try:
-        response = sentiment_analyzer_url+"analyze/"+text
+        # Call get method of requests library with URL and parameters
+        response = requests.get(request_url)
+
+        print(f"response from analyze_review_sentiments: {response} ")
 
         return response.json()
     except Exception as err:
         print(f"Unexpected {err=}, {type(err)=}")
-        print("Network exception occurrede")
+        print("Network exception occurred")
 
 # Add code for retrieving sentiments
 

@@ -68,9 +68,11 @@ def logout_request(request):
 # get a list of dealerships
 def get_dealerships(request, state="All"):
     if (state == "All"):
-        enpoint = "/fetchDealers"
+        endpoint = "/fetchDealers"
     else:
         endpoint = "/fetchDealers/"+state
+
+    print(f"endpoint: {endpoint}")
 
     dealerships = get_request(endpoint)
 
@@ -98,9 +100,13 @@ def get_dealer_reviews(request, dealer_id):
 
         for review_detail in reviews:
             senti_response = analyze_review_sentiments(review_detail["review"])
-            print(senti_response)
 
-            review_detail["sentiment"] = senti_response["sentiment"]
+            print(f"senti new response: {senti_response}")
+
+            # print(f"senti response: {senti_response}")
+            
+            # disabling this functionality due to an error
+            # review_detail["sentiment"] = senti_response["sentiment"]
 
         return JsonResponse({"status": 200, "reviews": reviews})
 
@@ -112,7 +118,7 @@ def get_dealer_reviews(request, dealer_id):
 # `add_review` view to submit a review
 def add_review(request):
     if (request.user.is_anonymous == False):
-        data = json,loads(request.body)
+        data = json.loads(request.body)
 
         try:
             response = post_review(data)
