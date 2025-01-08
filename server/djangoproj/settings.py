@@ -98,10 +98,10 @@ DATABASES = {
     }
 }
 
-## 'django.contrib.auth.password_validation.'
-## 'UserAttributeSimilarityValidator',
+# 'django.contrib.auth.password_validation.'
+# 'UserAttributeSimilarityValidator',
 # above is same as the following
-## django.contrib.auth.password_validation.UserAttributeSimilarityValidator
+# django.contrib.auth.password_validation.UserAttributeSimilarityValidator
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME':
