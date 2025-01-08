@@ -17,7 +17,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SITE = "https://ibrahimmn006-8000."
+SITE_URL = "https://ibrahimmn006-8000."
 "theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
 
 # Quick-start development settings - unsuitable for production
@@ -31,11 +31,10 @@ SECRET_KEY =\
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "localhost",
-    "https://ibrahimmn006-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
+    "localhost", SITE_URL
 ]
 CSRF_TRUSTED_ORIGINS = [
-    "https://ibrahimmn006-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
+    SITE_URL
 ]
 
 REST_FRAMEWORK = {
