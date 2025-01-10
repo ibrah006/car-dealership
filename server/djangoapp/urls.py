@@ -39,6 +39,9 @@ urlpatterns = [
         name="dealer_details"),
 
     # path for adding a review
-    path(route="add_review", view=views.add_review, name="add__review",)
+    path(route="add_review", view=views.add_review, name="add__review"),
+
+    # path for registration
+    path(route="register", view=views.registration, name="registration")
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
